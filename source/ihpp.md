@@ -6,14 +6,16 @@ language_tabs:
 
 toc_above:
 - <a href='index.html'>Getting Started</a>
-- <span>APIs</span>
-- <a href='direct_using_api.html'>Payment</a>
-- <span>Hosted Payment Page</span>
-- <a href='hpp.html'>HPP</a>
-- <a href='ihpp.html'>iHPP</a>
+- <a href='checkout.html'>Checkout</a>
+
 includes:
 
 toc_below:
+- <a href='apis.html'>APIs</a>
+- <a href='backoffice.html'>Backoffice</a>
+- <span>Java SDK</span>
+- <span>Shopping Carts</span>
+- <span>Testing</span>
 
 search: false
 ---
@@ -164,3 +166,5 @@ SST | string(64) | Secure Session Token.  This field will only be populated if t
 Once your UserURL page receives the transaction result, it can display the details to the customer.
 
 And you’re done.
+
+[<-- Go to Checkout](/checkout.html)

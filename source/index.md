@@ -7,11 +7,12 @@ toc_above:
 includes:
 
 toc_below:
-- <span>APIs</span>
-- <a href='direct_using_api.html'>Payment</a>
-- <span>Hosted Payment Page</span>
-- <a href='hpp.html'>HPP</a>
-- <a href='ihpp.html'>iHPP</a>
+- <a href='checkout.html'>Checkout</a>
+- <a href='apis.html'>APIs</a>
+- <a href='backoffice.html'>Backoffice</a>
+- <span>Java SDK</span>
+- <span>Shopping Carts</span>
+- <span>Testing</span>
 
 search: false
 ---
