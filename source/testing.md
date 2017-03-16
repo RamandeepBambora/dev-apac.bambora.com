@@ -24,7 +24,7 @@ search: false
 <script src='js/vendor/clipboard.min.js'></script>
 <script src='js/copy.js'></script>
 
-##Test Card Numbers
+#Test Card Numbers
 
 Genuine card information cannot be used in test mode. Instead, use any of the following test cards to create a payments.
 
@@ -54,7 +54,7 @@ Card Number  | Response | Daily Details | Example
 --------- | ------- | ----------- | ----------
 5123456123456787 | Approved | Simulates a time-out/delay.<br/><br/>If used in API testing, the delay happens after the transaction is submitted to the IPP transaction switch (DTS). This can be used to simulate a time-out where the client is using query to find the status of a transaction, or where a client is submitting a void/reversal in the case of a time-out.<br/><br/>The cents value sent will dictate how many seconds delay within the API response to simulate. | To simulate a 35 second delay, you can use 10.35 or 1.35 etc.. (dollar value can be anything)<br/>To simulate a 90 second delay, you can use 10.90 etc.
 
-##Simulates Declined Response
+#Simulates Declined Response
 
 To simulate decline response as per the below table where a specific card number simulates a specific response code, enter any valueABOVE $2.00 for the amount, expiry date,CVN and cardholder name. i.e entering Visa card number 4123456789010145with any amount over $2 will generate a decline response of 14.
 
