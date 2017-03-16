@@ -1,9 +1,6 @@
 ---
 title: dev/bambora
 
-language_tabs:
-  - shell: cURL
-
 toc_above:
 - <a href='index.html'>Getting Started</a>
 - <a href='checkout.html'>Checkout</a>
@@ -13,7 +10,6 @@ toc_above:
 includes:
 
 toc_below:
-- <a href='sdk.html'>Java SDK</a>
 - <a href='shippingcart.html'Shopping Carts</a>
 - <a href='testing.html'>Testing</a>
 

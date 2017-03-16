@@ -24,7 +24,7 @@ search: false
 
 #Test Card Numbers
 
-Genuine card information cannot be used in test mode. Instead, use any of the following test cards to create a payments.
+Genuine card information cannot be used in demo mode. Instead, use any of the following test cards to create a payments.
 ##Approved and Declined Response
 
 The following card numbers can be used to generate either approved or declined test transactions.
