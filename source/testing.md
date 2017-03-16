@@ -9,8 +9,6 @@ toc_above:
 - <a href='checkout.html'>Checkout</a>
 - <a href='apis.html'>APIs</a>
 - <a href='backoffice.html'>Backoffice</a>
-- <a href='sdk.html'>Java SDK</a>
-- <a href='shoppingcart.html'>Shopping Carts</a>
 - <a href='testing.html'>Testing</a>
 
 includes:
@@ -27,34 +25,34 @@ search: false
 #Test Card Numbers
 
 Genuine card information cannot be used in test mode. Instead, use any of the following test cards to create a payments.
+##Approved and Declined Response
 
 The following card numbers can be used to generate either approved or declined test transactions.
 
-To simulate Approved transactions, the amount entered must be over $2.00.
-
-To simulate Declined transactions, the amount entered must be between $1.01 and $1.99.
+* To simulate Approved transactions, the amount entered must be over $2.00.
+* To simulate Declined transactions, the amount entered must be between $1.01 and $1.99.
 
 Note that the cents entered determines the decline response code.
 
-Card Type  | Card Number | Response
---------- | ------- | -----------
-Visa      | 4005550000000001 | trwer
-MasterCard| 5123456789012346 | sdgsdfs
+Card Type  | Card Number
+--------- | -------
+Visa      | 4005550000000001
+MasterCard| 5123456789012346
 
-**Simulates Approved Response – with Delay**
+##Approved Response – with Delay
 
 Card Number  | Response | Daily Details | Example
 --------- | ------- | ----------- | ----------
 5123456123456787 | Approved | Introduces a delay that is the **cents** value in seconds. <br/>(Dollar value is irrelevant) | If the amount is $15.45 then a delay of 45 seconds will occur.
 4123456712345675 | Approved | Introduces a delay that is the dollar's value in seconds.<br/>(Cents value is irrelevant) | If the amount is $11.45 then a delay of 11 seconds will occur.
 
-**Simulates Approved Response – with Timeout**
+##Approved Response – with Timeout
 
 Card Number  | Response | Daily Details | Example
 --------- | ------- | ----------- | ----------
 5123456123456787 | Approved | Simulates a time-out/delay.<br/><br/>If used in API testing, the delay happens after the transaction is submitted to the IPP transaction switch (DTS). This can be used to simulate a time-out where the client is using query to find the status of a transaction, or where a client is submitting a void/reversal in the case of a time-out.<br/><br/>The cents value sent will dictate how many seconds delay within the API response to simulate. | To simulate a 35 second delay, you can use 10.35 or 1.35 etc.. (dollar value can be anything)<br/>To simulate a 90 second delay, you can use 10.90 etc.
 
-#Simulates Declined Response
+##Declined Response
 
 To simulate decline response as per the below table where a specific card number simulates a specific response code, enter any valueABOVE $2.00 for the amount, expiry date,CVN and cardholder name. i.e entering Visa card number 4123456789010145with any amount over $2 will generate a decline response of 14.
 

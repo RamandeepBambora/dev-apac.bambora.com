@@ -10,8 +10,6 @@ toc_below:
 - <a href='checkout.html'>Checkout</a>
 - <a href='apis.html'>APIs</a>
 - <a href='backoffice.html'>Backoffice</a>
-- <a href='sdk.html'>Java SDK</a>
-- <a href='shippingcart.html'Shopping Carts</a>
 - <a href='testing.html'>Testing</a>
 
 search: false
@@ -38,9 +36,6 @@ There are three methods for accepting payments:
 
 * [Checkout](checkout.html)
 * [APIs](apis.html)
-* [Shopping Carts](shoppingcart.html)
-* [SDK](sdk.html)
-
 
 # Contributing To The Docs
 

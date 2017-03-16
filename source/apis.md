@@ -13,8 +13,6 @@ includes:
 
 toc_below:
 - <a href='backoffice.html'>Backoffice</a>
-- <a href='sdk.html'>Java SDK</a>
-- <a href='shippingcart.html'Shopping Carts</a>
 - <a href='testing.html'>Testing</a>
 
 search: false
@@ -25,23 +23,23 @@ search: false
 
 # Overview
 
-Bambora have developed two APIs; one for taking payments and the other for reporting. We've made these integrations as simple as possible so you can get started quickly.  
+Bambora have developed two APIs. One for taking payments and the other for reporting. We've made these integrations as simple as possible so you can get started quickly.  
 
 #Payment API
-## Overview
+
 You can test the service by copy and pasting the cURL code sample into a text editor, replacing the credential and and then executing the updated code sample in your server.
 
-FYI: The test web service URL is located at: [https://demo.ippayments.com.au/interface/api/dts.asmx](https://demo.ippayments.com.au/interface/api/dts.asmx)
+FYI: The test web service URL is located at: [https://demo.bambora.co.nz/interface/api/dts.asmx](https://demo.bambora.co.nz/interface/api/dts.asmx)
 
-## Purchase & Pre - Auth
+## Purchase
 
 The list below provides an overview of the available transaction elements that should be submitted in the XML request.
 
 ```shell
-curl "https://demo.ippayments.com.au/interface/api/dts.asmx"  \
+curl "https://demo.bambora.co.nz/interface/api/dts.asmx"  \
   -H "Content-Type: text/xml" \
   -d '<?xml version="1.0" encoding="UTF-8"?>
-  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.ippayments.com.au/interface/api/dts">
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.bambora.co.nz/interface/api/dts">
 <soapenv:Header/>
 <soapenv:Body>
 <dts:SubmitSinglePayment>
@@ -81,7 +79,7 @@ AccountNumber | string(16) | This value dictates which account the transaction w
 CustNumber | string(64) | An additional reference for the transaction sent by you for reporting purposes.
 CustRef | string(64) | 	A reference for the transaction sent by you for reporting purposes.
 Amount | Numeric | Amount entered in cent value e.g. $55.00 = 5500
-TrnType | Numeric	| 1 is for Credit Card – Purchase <br/> 2 is for Credit Card - Auth
+TrnType | Numeric	| 1 is for Credit Card – Purchase
 CardNumber | string(16) | The credit card number. E.g. 1234567890654321
 ExpM | string(2) |	Month when the credit card expires.
 ExpY | string(4) | Year when the credit card expires.
@@ -97,74 +95,7 @@ Bambora will return the following response.
 ```shell
 '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <soap:Body>
-<SubmitSinglePaymentResponse xmlns="http://www.ippayments.com.au/interface/api/dts">
-<SubmitSinglePaymentResult><![CDATA[<Response>
-                  <ResponseCode>0</ResponseCode>
-                  <Timestamp>23-Feb-2017 16:06:41</Timestamp>
-                  <Receipt>90891389</Receipt>
-                  <SettlementDate>23-Feb-2017</SettlementDate>
-                  <DeclinedCode></DeclinedCode>
-                  <DeclinedMessage></DeclinedMessage>
-</Response>]]></SubmitSinglePaymentResult>
-</SubmitSinglePaymentResponse>
-</soap:Body>
-</soap:Envelope>'
-```
-
-Parameter |         | Description
---------- | ------- | -----------
-ResponseCode | string(64) |	Response code of the submitted payment.
-Timestamp | string(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
-Receipt | string(64) |	Receipt number of the submitted payment.
-SettlementDate | string(64)	| The settlement date of the submitted payment returned in the following format DD-MM-YYYY
-DeclinedCode | string(64) |	This field is blank if the submitted payment is approved, otherwise, declined code is populated.
-DeclinedMessage | string(64) |	This field is black if the submitted payment is approved, otherwise, declined message is populated.
-
-## Capture
-
-A pre-auth transaction reserves the funds on your customer’s card without debiting the money from the customer’s card. A follow up capture request **must** be sent with this transaction type to settle the transaction, debit the customers card and receive the funds.
-
-```shell
-curl "https://demo.ippayments.com.au/interface/api/dts.asmx"  \
-  -H "Content-Type: text/xml" \
-  -d '<?xml version="1.0" encoding="UTF-8"?>
-  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.ippayments.com.au/interface/api/dts">
-  <soapenv:Header/>
-  <soapenv:Body>
-  <dts:SubmitSingleCapture>
-  <!--Optional:-->
-  <dts:trnXML>
-  <![CDATA[
-  <Capture>
-       <Receipt>12345678</Receipt>
-       <Amount>5500</Amount>
-       <Security>
-               <UserName>your_api_username</UserName>
-               <Password>your_api_password</Password>
-       </Security>
-  </Capture>
-  ]]>
-  </dts:trnXML>
-  </dts:SubmitSingleCapture>
-  </soapenv:Body>
-  </soapenv:Envelope>'
-```
-
-Parameter   |           | Description
----------   | -------   | -----------
-Capture/Receipt | Numeric | Receipt number issued by Bambora from originally processed authorisation, provided in the authorisation response.
-Capture/Amount | Numeric | Amount entered as an integer eg. $55.00 = 5500
-Capture/Security/UserName | Alpha/Num | API Username
-Capture /Security/Password | Alpha/Num | API Password
-
-**RESPONSE SCHEMA**
-
-Bambora will return the following response.
-
-```shell
-'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<soap:Body>
-<SubmitSinglePaymentResponse xmlns="http://www.ippayments.com.au/interface/api/dts">
+<SubmitSinglePaymentResponse xmlns="http://www.bambora.co.nz/interface/api/dts">
 <SubmitSinglePaymentResult><![CDATA[<Response>
                   <ResponseCode>0</ResponseCode>
                   <Timestamp>23-Feb-2017 16:06:41</Timestamp>
@@ -188,23 +119,21 @@ DeclinedCode | string(64) |	This field is blank if the submitted payment is appr
 DeclinedMessage | string(64) |	This field is black if the submitted payment is approved, otherwise, declined message is populated.
 
 #Report API
-## Overview
-
 Bambora offers the ability to securely and efficiently retrieve reports via an API.
 
 The API consists of a web service that accepts and processes SOAP requests from a remote location over TCP/IP. Report file data is returned real-time via the API.
 
-The test web service URI is located at: https://demo.ippayments.com.au/interface/api/report.asmx
+The test web service URI is located at: https://demo.bambora.co.nz/interface/api/report.asmx
 
 ## Generate Report
 
 The list below provides an overview of the available transaction elements that should be submitted in the XML request.
 
 ```shell
-curl "https://demo.ippayments.com.au/interface/api/dts.asmx"  \
+curl "https://demo.bambora.co.nz/interface/api/dts.asmx"  \
   -H "Content-Type: text/xml" \
   -d '<?xml version="1.0" encoding="UTF-8"?>
-  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rep="http://www.ippayments.com.au/interface/api/report">
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rep="http://www.bambora.co.nz/interface/api/report">
   <soapenv:Header/>
   <soapenv:Body>
   <rep:GenerateReport>
@@ -242,7 +171,7 @@ Bambora will return the following response.
 ```shell
 '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
  <soap:Body>
- <GenerateReportResponse xmlns="http://www.ippayments.com.au/interface/api/report">
+ <GenerateReportResponse xmlns="http://www.bambora.co.nz/interface/api/report">
    <GenerateReportResult>
           <resultSummary>0</resultSummary>
           <resultMessage>Report file data generated OK</resultMessage>
