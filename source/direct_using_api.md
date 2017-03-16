@@ -29,7 +29,7 @@ You can test the service by copy and pasting the cURL code sample into a text ed
 
 FYI: The test web service URL is located at: [https://demo.ippayments.com.au/interface/api/dts.asmx](https://demo.ippayments.com.au/interface/api/dts.asmx)
 
-# Submit Single Payment
+# Purchase & Pre - Auth
 
 The list below provides an overview of the available transaction elements that should be submitted in the XML request.
 
@@ -37,28 +37,36 @@ The list below provides an overview of the available transaction elements that s
 curl "https://demo.ippayments.com.au/interface/api/dts.asmx"  \
   -H "Content-Type: text/xml" \
   -d '<?xml version="1.0" encoding="UTF-8"?>
-      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.ippayments.com.au/interface/api/dts">
-        <soapenv:Header />
-        <soapenv:Body>
-          <dts:SubmitSinglePayment>
-            <!--Optional:-->
-            <dts:trnXML><![CDATA[<Transaction>
-          <CustNumber>cust_number</CustNumber>
-          <CustRef>any_str</CustRef>
-          <Amount>1000</Amount>
-
-          <TrnType>1</TrnType>
-          <CreditCard Registered="True">
-          </CreditCard>
-          <Security>
-              <UserName>your_api_username</UserName>
-              <Password>your_api_password</Password>
-          </Security>
-          <UserDefined></UserDefined>
-      </Transaction>]]></dts:trnXML>
-          </dts:SubmitSinglePayment>
-        </soapenv:Body>
-      </soapenv:Envelope>'
+  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.ippayments.com.au/interface/api/dts">
+<soapenv:Header/>
+<soapenv:Body>
+<dts:SubmitSinglePayment>
+<!--Optional:-->
+<dts:trnXML>
+<![CDATA[
+<Transaction>
+    <CustNumber>any_str</CustNumber>
+    <CustRef>any_str</CustRef>
+    <Amount>1000</Amount>
+    <TrnType>1</TrnType>
+    <AccountNumber>your_accountnumber</AccountNumber>
+    <CreditCard>
+                <CardNumber>4242424242424242</CardNumber>
+                <ExpM>02</ExpM>
+                <ExpY>2019</ExpY>
+                <CVN>123</CVN>
+                <CardHolderName>API Test</CardHolderName>
+     </CreditCard>
+     <Security>
+                <UserName>your_api_username</UserName>
+                <Password>your_api_password</Password>
+     </Security>
+</Transaction>
+]]>
+</dts:trnXML>
+</dts:SubmitSinglePayment>
+</soapenv:Body>
+</soapenv:Envelope>'
 ```
 
 **REQUEST BODY SCHEMA**
@@ -108,7 +116,7 @@ SettlementDate | string(64)	| The settlement date of the submitted payment retur
 DeclinedCode | string(64) |	This field is blank if the submitted payment is approved, otherwise, declined code is populated.
 DeclinedMessage | string(64) |	This field is black if the submitted payment is approved, otherwise, declined message is populated.
 
-# Submit Single Capture
+# Capture
 
 A pre-auth transaction reserves the funds on your customer’s card without debiting the money from the customer’s card. A follow up capture request **must** be sent with this transaction type to settle the transaction, debit the customers card and receive the funds.
 

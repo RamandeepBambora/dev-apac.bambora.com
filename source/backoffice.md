@@ -13,9 +13,9 @@ toc_above:
 includes:
 
 toc_below:
-- <span>Java SDK</span>
-- <span>Shopping Carts</span>
-- <span>Testing</span>
+- <a href='sdk.html'>Java SDK</a>
+- <a href='shippingcart.html'Shopping Carts</a>
+- <a href='testing.html'>Testing</a>
 
 search: false
 ---

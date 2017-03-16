@@ -10,9 +10,9 @@ toc_below:
 - <a href='checkout.html'>Checkout</a>
 - <a href='apis.html'>APIs</a>
 - <a href='backoffice.html'>Backoffice</a>
-- <span>Java SDK</span>
-- <span>Shopping Carts</span>
-- <span>Testing</span>
+- <a href='sdk.html'>Java SDK</a>
+- <a href='shippingcart.html'Shopping Carts</a>
+- <a href='testing.html'>Testing</a>
 
 search: false
 ---
@@ -36,9 +36,10 @@ You're almost ready to start taking payments!
 
 There are three methods for accepting payments:
 
-* [Hosted Payment Pages (HPP)](hpp.html)
-* [Integrated Hosted Payment Pages (iHPP)](ihpp.html)
-* [Direct using our API](direct_using_api.html)
+* [Checkout](checkout.html)
+* [APIs](apis.html)
+* [Shopping Carts](shoppingcart.html)
+* [SDK](sdk.html)
 
 
 # Contributing To The Docs
