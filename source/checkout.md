@@ -30,45 +30,14 @@ First you should identify how you would to include the Checkout in your business
 
 There are two options:
 
-* Standalone
 * Integrated
-
-#Standalone
-
-Checkout Standalone is a low touch integration, providing an secure hosted payment page through a separate URL. Transactions are processed in real-time and the response displayed back to the customer. There is not redirect back to your business but the transaction result can be viewed through your Bambora Backoffice reporting facility.  
-
-##Standalone v2
-
-Sample URL
-
-[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000)
-
-```shell
-cURL "https://demo.bambora.co.nz/access/index.aspx"
--d 'a=85569861'
--d 'accountnumber=[AccountNumber]'
--d 'dl=Checkout_v2_hpp_purchase'
-```
-
-##Standalone v1
-
-Sample URL
-
-[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal)
-
-```shell
-cURL "https://demo.bambora.co.nz/access/index.aspx"
--d 'a=85569861'
--d 'accountnumber=[AccountNumber]'
--d 'amount=[AmountValue]'
--d 'dl=Checkout_v1_hpp_purchase'
-```
+* Standalone
 
 #Integrated
 
 Checkout Integrated allow you to embed the payment page within your website through an iFrame. This enables your customer make the payment on your website and allow you to provide a seamless integration with Bambora through the purchase with transaction status returned back to your internal system.
 
-Processing online transactions by Intergrated requires the following sequence:
+Processing online transactions by Integrated requires the following sequence:
 
 ##1. Create a session
 
@@ -89,9 +58,15 @@ cURL "https://demo.bambora.co.nz/access/index.aspx"
 -d 'AccountNumber=[Account Number]'
 ```
 
+There are two version of the integrated checkout page which can be configured through the DLs below:
+
+**Integrated v1** - DL=checkout_v1_purchase), which allows you to pre-populate the **Amount** value before launching the page.
+
+**Integrated v2** - DL=checkout_v2_purchase), which allows your customer to input the **Amount** and **Reference** details on the page.
+
 **Session Response**
 
-The response contains the extracted token for the session.
+The response contains a secure session token (SST).
 
 ```HTML
 <html>
@@ -146,8 +121,8 @@ The Bambora server POSTs the response to your server using the ‘ServerURL’ a
 
 ***2nd response***
 
-
 Bambora redirect to the ‘UserURL’ as supplied in the Session Initiation request and POST’s the SessionID and SST. Your UserURL page can use these details to access the transaction results stored in your database from the first notification.
+
 Once your UserURL page receives the transaction result, it can display the details to the customer.
 
 And you’re done.
@@ -246,3 +221,49 @@ Parameter |         | Description
 --------- | ------- | -----------
 SessionStored | string(64) | Value that can be either True or False
 SST | string(64) | Secure Session Token.  This field will only be populated if the SessionStored value is True.
+
+#Standalone
+
+Checkout Standalone is a low touch integration, providing an secure hosted payment page through a separate URL. Transactions are processed in real-time and the response displayed back to the customer. There is not redirect back to your business but the transaction result can be viewed through your Bambora Backoffice reporting facility.  
+
+##Standalone v1
+
+If the **Amount** has already been displayed on the page, you can use our Standalone v1 to only capture your customers' card details.
+
+Sample URL
+
+[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal)
+
+```shell
+cURL "https://demo.bambora.co.nz/access/index.aspx"
+-d 'a=85569861'
+-d 'accountnumber=[AccountNumber]'
+-d 'amount=[AmountValue]'
+-d 'dl=Checkout_v1_hpp_purchase'
+```
+
+##Standalone v2
+
+If you require your customers to enter the **Amount** and **Reference** on the page they can use our standalone checkout v2 page.
+
+Sample URL
+
+[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000)
+
+```shell
+cURL "https://demo.bambora.co.nz/access/index.aspx"
+-d 'a=85569861'
+-d 'accountnumber=[AccountNumber]'
+-d 'dl=Checkout_v2_hpp_purchase'
+```
+
+
+#Test payments using checkout
+
+To make a payment using the checkout interface following details need to be provide in the test payment:
+
+* Test Card Number
+* Any three-digit CVC code
+* Any expiration date in the future
+* Reference (Mandatory if displayed on checkout page)
+* Amount (Mandatory if displayed on checkout page)
