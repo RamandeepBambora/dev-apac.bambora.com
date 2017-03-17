@@ -14,6 +14,7 @@ includes:
 toc_below:
 - <a href='backoffice.html'>Backoffice</a>
 - <a href='testing.html'>Testing</a>
+- <a href='migration.html'>Migration to Production</a>
 
 search: false
 ---

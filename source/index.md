@@ -11,6 +11,7 @@ toc_below:
 - <a href='apis.html'>APIs</a>
 - <a href='backoffice.html'>Backoffice</a>
 - <a href='testing.html'>Testing</a>
+- <a href='migration.html'>Migration to Production</a>
 
 search: false
 ---
@@ -32,7 +33,7 @@ After registering, you'll receive an email with two sets of credentials, one for
 
 You're almost ready to start taking payments!
 
-There are three methods for accepting payments:
+There are two methods for accepting payments:
 
 * [Checkout](checkout.html)
 * [APIs](apis.html)
