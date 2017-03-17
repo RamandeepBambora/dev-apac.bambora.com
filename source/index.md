@@ -37,10 +37,5 @@ There are three methods for accepting payments:
 * [Checkout](checkout.html)
 * [APIs](apis.html)
 
-# Contributing To The Docs
-
-We've made it easy for anyone to update the documents. If you see any docs in error or sections that could use improvement simply look for the **Update Docs** link at the top of every page. It will send you to the GitHub page where you can make changes.
-
-
 # Support
 Running into issues? No problem, just send us an email: [setup.apac@bambora.com](mailto:setup.apac@bambora.com).
