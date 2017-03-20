@@ -34,121 +34,95 @@ FYI: The test web service URL is located at: [https://demo.bambora.co.nz/interfa
 
 ## Purchase
 
+**SOAP Method:** SubmitSinglePayment
+
 The list below provides an overview of the available transaction elements that should be submitted in the XML request.
 
 ```shell
-curl "https://demo.bambora.co.nz/interface/api/dts.asmx"  \
-  -H "Content-Type: text/xml" \
-  -d '<?xml version="1.0" encoding="UTF-8"?>
-  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dts="http://www.bambora.co.nz/interface/api/dts">
-<soapenv:Header/>
-<soapenv:Body>
-<dts:SubmitSinglePayment>
-<!--Optional:-->
-<dts:trnXML>
-<![CDATA[
-<Transaction>
-    <CustNumber>any_str</CustNumber>
-    <CustRef>any_str</CustRef>
-    <Amount>1000</Amount>
-    <TrnType>1</TrnType>
-    <AccountNumber>your_accountnumber</AccountNumber>
-    <CreditCard>
-                <CardNumber>4242424242424242</CardNumber>
-                <ExpM>02</ExpM>
-                <ExpY>2019</ExpY>
-                <CVN>123</CVN>
-                <CardHolderName>API Test</CardHolderName>
-     </CreditCard>
-     <Security>
-                <UserName>your_api_username</UserName>
-                <Password>your_api_password</Password>
-     </Security>
-</Transaction>
-]]>
-</dts:trnXML>
-</dts:SubmitSinglePayment>
-</soapenv:Body>
-</soapenv:Envelope>'
+curl "https://demo.Bambora.co.nz/interface/api/dts.asmx"
+'<Transaction>
+      <CustNumber>your_custnumber</CustNumber>
+      <CustRef>your_custref</CustRef>
+      <Amount>1000</Amount>
+      <TrnType>1</TrnType>
+      <AccountNumber>your_accountnumber</AccountNumber>
+      <CreditCard>
+                  <CardNumber>4242424242424242</CardNumber>
+                  <ExpM>02</ExpM>
+                  <ExpY>2019</ExpY>
+                  <CVN>123</CVN>
+                  <CardHolderName>Test</CardHolderName>
+       </CreditCard>
+       <Security>
+                  <UserName>your_api_username</UserName>
+                  <Password>your_api_password</Password>
+       </Security>
+</Transaction>'
 ```
-
-**REQUEST BODY SCHEMA**
-
 Parameter |  Format | Description
 --------- | ------- | -----------
-AccountNumber | string(16) | This value dictates which account the transaction will be processed through. Refer to section Account Hierarchy. <br/> <img src="/images/warning.png"> Note: This parameter indicates where the transaction will be processed to.
-CustNumber | string(64) | An additional reference for the transaction sent by you for reporting purposes.
-CustRef | string(64) | 	A reference for the transaction sent by you for reporting purposes.
-Amount | Numeric | Amount entered in cent value e.g. $55.00 = 5500
-TrnType | Numeric	| 1 is for Credit Card – Purchase
-CardNumber | string(16) | The credit card number. E.g. 1234567890654321
-ExpM | string(2) |	Month when the credit card expires.
-ExpY | string(4) | Year when the credit card expires.
-CVN | string(3) | Card Security Code
-CardHolderName | string(1024) |	The name of the credit card holder.  
-Security/Username | string(32) |	API Username
-Security/Password | string(16) |	API Password
+AccountNumber | Alpha/Num(16) | This value dictates which account the transaction will be processed through. Refer to section Account Hierarchy. <br/> <img src="/images/warning.png"> Note: This parameter indicates where the transaction will be processed to.
+CustNumber | Alpha/Num(64) | An additional reference for the transaction sent by you for reporting purposes.
+CustRef | Alpha/Num(64) | 	A reference for the transaction sent by you for reporting purposes.
+Amount | Numeric(10) | Amount entered in cent value e.g. $55.00 = 5500
+TrnType | Numeric(2)	| 1 is for Credit Card – Purchase
+CardNumber | Numeric(16) | The credit card number. E.g. 1234567890654321
+ExpM | Numeric(2) |	Month when the credit card expires.
+ExpY | Numeric(4) | Year when the credit card expires.
+CVN | Numeric(3) | Card Security Code
+CardHolderName | Alpha/Num(1024) |	The name of the credit card holder.  
+Security/Username | Alpha/Num(32) |	API Username
+Security/Password | Alpha/Num(16) |	API Password
 
 **RESPONSE SCHEMA**
 
 Bambora will return the following response.
 
 ```shell
-'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<soap:Body>
-<SubmitSinglePaymentResponse xmlns="http://www.bambora.co.nz/interface/api/dts">
-<SubmitSinglePaymentResult><![CDATA[<Response>
-                  <ResponseCode>0</ResponseCode>
-                  <Timestamp>23-Feb-2017 16:06:41</Timestamp>
-                  <Receipt>90891389</Receipt>
-                  <SettlementDate>23-Feb-2017</SettlementDate>
-                  <DeclinedCode></DeclinedCode>
-                  <DeclinedMessage></DeclinedMessage>
-</Response>]]></SubmitSinglePaymentResult>
-</SubmitSinglePaymentResponse>
-</soap:Body>
-</soap:Envelope>'
+'<Response>
+    <ResponseCode>0</ResponseCode>
+    <Timestamp>23-Feb-2017 16:06:41</Timestamp>
+    <Receipt>90891389</Receipt>
+    <SettlementDate>23-Feb-2017</SettlementDate>
+    <DeclinedCode></DeclinedCode>
+    <DeclinedMessage></DeclinedMessage>
+</Response>'
 ```
 
 Parameter |  Format | Description
 --------- | ------- | -----------
-ResponseCode | string(64) |	Response code of the submitted payment.
-Timestamp | string(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
-Receipt | string(64) |	Receipt number of the submitted payment.
-SettlementDate | string(64)	| The settlement date of the submitted payment returned in the following format DD-MM-YYYY
-DeclinedCode | string(64) |	This field is blank if the submitted payment is approved, otherwise, declined code is populated.
-DeclinedMessage | string(64) |	This field is black if the submitted payment is approved, otherwise, declined message is populated.
+ResponseCode | Numeric(64) |	Response code of the submitted payment.
+Timestamp | Alpha/Num(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
+Receipt | Alpha/Num(64) |	Receipt number of the submitted payment.
+SettlementDate | Alpha/Num(64)	| The settlement date of the submitted payment returned in the following format DD-MM-YYYY
+DeclinedCode | Alpha/Num(64) |	This field is blank if the submitted payment is approved, otherwise, declined code is populated.
+DeclinedMessage | Alpha/Num(64) |	This field is black if the submitted payment is approved, otherwise, declined message is populated.
 
 #Report API
 Bambora offers the ability to securely and efficiently retrieve reports via an API.
 
 The API consists of a web service that accepts and processes SOAP requests from a remote location over TCP/IP. Report file data is returned real-time via the API.
 
-The test web service URI is located at: https://demo.bambora.co.nz/interface/api/report.asmx
+* The test web service URI is located at: https://demo.bambora.co.nz/interface/api/report.asmx
 
 ## Generate Report
+
+SOAP Method: GenerateReport
 
 The list below provides an overview of the available transaction elements that should be submitted in the XML request.
 
 ```shell
-curl "https://demo.bambora.co.nz/interface/api/dts.asmx"  \
-  -H "Content-Type: text/xml" \
-  -d '<?xml version="1.0" encoding="UTF-8"?>
-  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rep="http://www.bambora.co.nz/interface/api/report">
-  <soapenv:Header/>
-  <soapenv:Body>
-  <rep:GenerateReport>
-           <rep:userName>your_api_username</rep:userName>
-           <rep:password>your_api_password</rep:password>
-           <rep:accountNumber>your_accountnumber</rep:accountNumber>
-           <rep:reportID>your_reportID</rep:reportID>
-           <rep:reportFormatID>4</rep:reportFormatID>
-           <rep:sDate>2017-04-01</rep:sDate>
-           <rep:eDate>2017-05-01</rep:eDate>
-           <rep:parmList></rep:parmList>
-  </rep:GenerateReport>
-  </soapenv:Body>
-  </soapenv:Envelope>'
+curl "https://demo.Bambora.co.nz/interface/api/report.asmx"
+'<rep:GenerateReport>
+         <rep:userName>your_api_username</rep:userName>
+         <rep:password>your_api_password</rep:password>
+         <rep:accountNumber>your_accountnumber</rep:accountNumber>
+         <rep:reportID>your_reportID</rep:reportID>
+         <rep:reportFormatID>4</rep:reportFormatID>
+         <rep:sDate>2017-04-01</rep:sDate>
+         <rep:eDate>2017-05-01</rep:eDate>
+         <rep:parmList></rep:parmList>
+</rep:GenerateReport>'
 ```
 
 **REQUEST BODY SCHEMA**
@@ -170,18 +144,12 @@ ParmList | Alpha/Num | Additional parameters needed by the report in a comma-del
 Bambora will return the following response.
 
 ```shell
-'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
- <soap:Body>
- <GenerateReportResponse xmlns="http://www.bambora.co.nz/interface/api/report">
-   <GenerateReportResult>
-          <resultSummary>0</resultSummary>
-          <resultMessage>Report file data generated OK</resultMessage>
-          <b64ReportFileData>IkFjY291bnQgIyIsIkRhdGUvVGltZSIsIlJlY2VpcHQiLCJUeXBlIiwiQ2hhbm5lbCIsIkFtb3VudCIsIlN1cmNoYXJnZSIsIlNldHRsZW1lbnQgRGF0ZSIsIlJlc3VsdCBDb2RlIiwiUmVzdWx0IFRleHQiLCJDdXN0b21lciBOdW1iZXIiLCJDdXN0UmVmIiwiVXNlciIsIkNhcmQgVHlwZSIsIkNhcmQgTnVtYmVyIiwiTmFtZSBvbiBDYXJkIiwiQ29tbWVudHMiDQosLCwsTmV0QW1vdW50LDAuMDAsLCwsLCwsLCwsLA0K</b64ReportFileData>
-          <reportFileName>AllTransactionDetail_20160928.csv</reportFileName>
-   </GenerateReportResult>
- </GenerateReportResponse>
- </soap:Body>
-</soap:Envelope>'
+'<GenerateReportResult>
+         <resultSummary>0</resultSummary>
+         <resultMessage>Report file data generated OK</resultMessage>
+         <b64ReportFileData>IkFjY291bnQgIyIsIkRhdGUvVGltZSIsIlJlY2VpcHQiLCJUeXBlIiwiQ2hhbm5lbCIsIkFtb3VudCIsIlN1cmNoYXJnZSIsIlNldHRsZW1lbnQgRGF0ZSIsIlJlc3VsdCBDb2RlIiwiUmVzdWx0IFRleHQiLCJDdXN0b21lciBOdW1iZXIiLCJDdXN0UmVmIiwiVXNlciIsIkNhcmQgVHlwZSIsIkNhcmQgTnVtYmVyIiwiTmFtZSBvbiBDYXJkIiwiQ29tbWVudHMiDQosLCwsTmV0QW1vdW50LDAuMDAsLCwsLCwsLCwsLA0K</b64ReportFileData>
+         <reportFileName>AllTransactionDetail_20160928.csv</reportFileName>
+  </GenerateReportResult>'
 ```
 
 Name      | Value  
