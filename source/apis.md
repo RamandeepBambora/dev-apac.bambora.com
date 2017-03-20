@@ -74,7 +74,7 @@ curl "https://demo.bambora.co.nz/interface/api/dts.asmx"  \
 
 **REQUEST BODY SCHEMA**
 
-Parameter |         | Description
+Parameter |  Format | Description
 --------- | ------- | -----------
 AccountNumber | string(16) | This value dictates which account the transaction will be processed through. Refer to section Account Hierarchy. <br/> <img src="/images/warning.png"> Note: This parameter indicates where the transaction will be processed to.
 CustNumber | string(64) | An additional reference for the transaction sent by you for reporting purposes.
@@ -110,7 +110,7 @@ Bambora will return the following response.
 </soap:Envelope>'
 ```
 
-Parameter |         | Description
+Parameter |  Format | Description
 --------- | ------- | -----------
 ResponseCode | string(64) |	Response code of the submitted payment.
 Timestamp | string(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
