@@ -28,7 +28,7 @@ Bambora have developed two APIs. One for taking payments and the other for repor
 
 #Payment API
 
-You can test the service by copy and pasting the cURL code sample into a text editor, replacing the credential and and then executing the updated code sample in your server.
+You can test the service by copy and pasting the cURL code sample into a text editor, replacing the credential and then executing the updated code sample in your server.
 
 FYI: The test web service URL is located at: [https://demo.bambora.co.nz/interface/api/dts.asmx](https://demo.bambora.co.nz/interface/api/dts.asmx)
 
@@ -91,7 +91,7 @@ Bambora will return the following response.
 
 Parameter |  Format | Description
 --------- | ------- | -----------
-ResponseCode | Numeric(64) |	Response code of the submitted payment.
+ResponseCode | Numeric(64) |	Response code of the submitted payment. <br/><br/> 0 = Approved <br/> 1 = Not Approved
 Timestamp | Alpha/Num(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
 Receipt | Alpha/Num(64) |	Receipt number of the submitted payment.
 SettlementDate | Alpha/Num(64)	| The settlement date of the submitted payment returned in the following format DD-MM-YYYY
@@ -103,7 +103,7 @@ Bambora offers the ability to securely and efficiently retrieve reports via an A
 
 The API consists of a web service that accepts and processes SOAP requests from a remote location over TCP/IP. Report file data is returned real-time via the API.
 
-* The test web service URI is located at: https://demo.bambora.co.nz/interface/api/report.asmx
+* The test web service URI is located at: [https://demo.bambora.co.nz/interface/api/report.asmx](https://demo.bambora.co.nz/interface/api/report.asmx)
 
 ## Generate Report
 
@@ -132,11 +132,11 @@ Name           |  Format        | Description
 Username | Alpha/Num | API Username
 Password | Alpha/Num | API Password
 AccountNumber | Alpha/Num | 	A reference for the transaction sent by you for reporting purposes.
-ReportID | Numeric | The report #. <img src="/images/warning.png"> Login to Backoffice to see the reportID.<br/><br/>By default the below reports are provided when you are onboarded:<br/><br/>1. Customer Credit Card Expiry Check (Adobe Acrobat only)<br/>2. All Transaction Detail V2 (CSV only)<br/>3. Daily Settlement Reconcilliation Report (Adobe Acrobat only)<br/>
+ReportID | Numeric | The report #. <img src="/images/warning.png"> Please login to Bambora Backoffice to find the reportID.<br/><br/>By default the below reports are provided when you are onboarded:<br/><br/>1. Customer Credit Card Expiry Check (Adobe Acrobat only)<br/>2. All Transaction Detail V2 (CSV only)<br/>3. Daily Settlement Reconcilliation Report (Adobe Acrobat only)<br/>
 ReportFormatID | Integer	| This specifies the report file type. Please see valid ID’s below: <br/><br/>1  - Adobe Acrobat © PDF (Default)<br/>3  -   Microsoft Excel ©<br/>4 -  CSV (Comma Delimited)<br/>5  - Rich Text Format<br/>6  - TIFF image<br/>99 - Raw Data
-sDate | Alpha/Num | Report date range start date.<br/><br/>Format must be yyyy-mm-dd.<br/><br/>Optional. If report does not require it leave blank.
-eDate| Alpha/Num |	Report date range end date.<br/><br/>Format must be yyyy-mm-dd.<br/><br/>Optional. If report does not require it leave blank.
-ParmList | Alpha/Num | Additional parameters needed by the report in a comma-delimited list (do not include quotes).<br/><br/>Order is important.<br/><br/>Optional. If report does not require additional parameters leave blank.
+sDate | Alpha/Num | Report date range start date.<br/>Format must be yyyy-mm-dd.<br/>Optional. If report does not require it leave blank.
+eDate| Alpha/Num |	Report date range end date.<br/>Format must be yyyy-mm-dd.<br/>Optional. If report does not require it leave blank.
+ParmList | Alpha/Num | Additional parameters needed by the report in a comma-delimited list (do not include quotes).<br/>Order is important.<br/>Optional. If report does not require additional parameters leave blank.
 
 
 **RESPONSE SCHEMA**
@@ -152,8 +152,8 @@ Bambora will return the following response.
   </GenerateReportResult>'
 ```
 
-Name      | Value  
+Name      | Description  
 --------- | -------
-resultSummary | One of:<br/><br/>0  - Report file data generated OK<br/><br/>2  - User does not have permission to generate report files<br/><br/>3  - Report cannot be generated based upon supplied parameters<br/><br/>99 - Exception encountered
-resultMessage | string(64) |	Response code of the submitted payment.
-b64ReportFileData | string(256) |	Time when the payment transaction is submitted in the following format DD-MM-YYYY hh:mm:ss
+resultSummary | 0  - Report file data generated OK<br/>1 - Invalid username/password<br/>2  - User does not have permission to generate report files<br/>3  - Report cannot be generated based upon supplied parameters<br/>99 - Exception encountered
+resultMessage | Contains a textual description of the result. Including a list of any exceptions encountered.
+b64ReportFileData | The base64 encoded report file data. Will be blank if an exception is encountered.
