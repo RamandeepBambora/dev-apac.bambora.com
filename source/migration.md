@@ -28,6 +28,6 @@ Once you successfully tested Checkout and APIs in our demo environment it is sup
 
 Service | Live Web Service URL Location
 ------- | -----------------------------
-Checkout | https://www.ippayments.com/access/index.aspx
-Payment API | https://www.ippayments.com/interface/api/dts.asmx
-Report API | https://www.ippayments.com/interface/api/report.asmx
+Checkout | https://www.bambora.co.nz/access/index.aspx
+Payment API | https://www.bambora.co.nz/interface/api/dts.asmx
+Report API | https://www.bambora.co.nz/interface/api/report.asmx
