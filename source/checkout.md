@@ -236,7 +236,7 @@ If you wish to pre-populate the **Amount** on the page, you can use our Standalo
 
 Sample URL
 
-[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=&custref=devportal)
+[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=CustRef&custnumber=CustNumber](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v1_hpp_purchase&accountnumber=Exa-5149&amount=1000&custref=CustRef&custnumber=CustNumber)
 
 ```shell
 cURL "https://demo.bambora.co.nz/access/index.aspx"
@@ -244,6 +244,8 @@ cURL "https://demo.bambora.co.nz/access/index.aspx"
 -d 'accountnumber=[AccountNumber]'
 -d 'amount=[AmountValue]'
 -d 'dl=Checkout_v1_hpp_purchase'
+-d 'Custref=[CustRef]'
+-d 'CustNumber=[CustNumber]'
 ```
 
 ##Standalone v2
@@ -252,7 +254,7 @@ If you require your customers to enter the **Amount** and **Reference** on the p
 
 Sample URL
 
-[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149&amount=1000)
+[https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149](https://demo.bambora.co.nz/access/index.aspx?a=85569861&dl=Checkout_v2_hpp_purchase&accountnumber=Exa-5149)
 
 ```shell
 cURL "https://demo.bambora.co.nz/access/index.aspx"
