@@ -30,7 +30,7 @@ Bambora have developed two APIs. One for taking payments and the other for repor
 
 You can test the service by copy and pasting the cURL code sample into a text editor, replacing the credential and then executing the updated code sample in your server.
 
-FYI: The test web service URL is located at: [https://demo.bambora.co.nz/interface/api/dts.asmx](https://demo.bambora.co.nz/interface/api/dts.asmx)
+The test web service URL is located at: [https://demo.bambora.co.nz/interface/api/dts.asmx](https://demo.bambora.co.nz/interface/api/dts.asmx)
 
 ## Purchase
 
@@ -127,7 +127,7 @@ curl "https://demo.Bambora.co.nz/interface/api/report.asmx"
 
 **REQUEST BODY SCHEMA**
 
-Name           |  Format        | Description
+Parameter      |  Format        | Description
 -------------- | -------------  | -----------
 Username | Alpha/Num | API Username
 Password | Alpha/Num | API Password
@@ -152,7 +152,7 @@ Bambora will return the following response.
   </GenerateReportResult>'
 ```
 
-Name      | Description  
+Parameter | Description  
 --------- | -------
 resultSummary | 0  - Report file data generated OK<br/>1 - Invalid username/password<br/>2  - User does not have permission to generate report files<br/>3  - Report cannot be generated based upon supplied parameters<br/>99 - Exception encountered
 resultMessage | Contains a textual description of the result. Including a list of any exceptions encountered.
