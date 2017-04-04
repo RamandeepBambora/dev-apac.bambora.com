@@ -50,13 +50,13 @@ Card Number  | Response | Daily Details | Example
 
 Card Number  | Response | Daily Details | Example
 --------- | ------- | ----------- | ----------
-5123456123456787 | Approved | Simulates a time-out/delay.<br/><br/>If used in API testing, the delay happens after the transaction is submitted to the IPP transaction switch (DTS). This can be used to simulate a time-out where the client is using query to find the status of a transaction, or where a client is submitting a void/reversal in the case of a time-out.<br/><br/>The cents value sent will dictate how many seconds delay within the API response to simulate. | To simulate a 35 second delay, you can use 10.35 or 1.35 etc.. (dollar value can be anything)<br/>To simulate a 90 second delay, you can use 10.90 etc.
+5123456123456787 | Approved | Simulates a time-out/delay.<br/><br/>If used in API testing, the delay happens after the transaction is submitted to the Bambora transaction switch (DTS). This can be used to simulate a time-out where the client is using query to find the status of a transaction, or where a client is submitting a void/reversal in the case of a time-out.<br/><br/>The cents value sent will dictate how many seconds delay within the API response to simulate. | To simulate a 35 second delay, you can use 10.35 or 1.35 etc.. (dollar value can be anything)<br/>To simulate a 90 second delay, you can use 10.90 etc.
 
 ##Declined Response
 
 To simulate decline response as per the below table where a specific card number simulates a specific response code, enter any valueABOVE $2.00 for the amount, expiry date,CVN and cardholder name. i.e entering Visa card number 4123456789010145with any amount over $2 will generate a decline response of 14.
 
-Note that if you enter an amount between $1 and $1.99, this will disregard the specific card number = specific response code and will simulate a response code between 1 and 99 (where the cents entered determines the code). $1.08, $1.10, $1.11 and $1.16 will simulate an approved response.All Decline codes range from 1 to 999. A lot of these are reserved for future use and so do not appear here.Please obtain the latest ‘Bank and IP Payments Response Codes’ document for more detail on the responses.
+Note that if you enter an amount between $1 and $1.99, this will disregard the specific card number = specific response code and will simulate a response code between 1 and 99 (where the cents entered determines the code). $1.08, $1.10, $1.11 and $1.16 will simulate an approved response.All Decline codes range from 1 to 999. A lot of these are reserved for future use and so do not appear here.Please obtain the latest ‘Bank and Bambora Response Codes’ document for more detail on the responses.
 
 This list does not contain all the responses –only those that are most common.
 
