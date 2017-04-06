@@ -25,14 +25,11 @@ search: false
 #Test Card Numbers
 
 Genuine card information cannot be used in demo mode. Instead, use any of the following test cards to create a payments.
-##Approved and Declined Response
+##Approved Response
 
-The following card numbers can be used to generate either approved or declined test transactions.
+The following card numbers can be used to generate approved test transactions.
 
-* To simulate Approved transactions, the amount entered must be over $2.00.
-* To simulate Declined transactions, the amount entered must be between $1.01 and $1.99.
-
-Note that the cents entered determines the decline response code.
+* To simulate Approved transactions, the amount entered must be over $4.00.
 
 Card Type  | Card Number
 --------- | -------
@@ -54,9 +51,9 @@ Card Number  | Response | Daily Details | Example
 
 ##Declined Response
 
-To simulate decline response as per the below table where a specific card number simulates a specific response code, enter any valueABOVE $2.00 for the amount, expiry date,CVN and cardholder name. i.e entering Visa card number 4123456789010145with any amount over $2 will generate a decline response of 14.
+To simulate decline response as per the below table where a specific card number simulates a specific response code, enter any value for the amount, expiry date,CVN and cardholder name. i.e entering Visa card number 4123456789010145 with any amount will generate a decline response of 14.
 
-Note that if you enter an amount between $1 and $1.99, this will disregard the specific card number = specific response code and will simulate a response code between 1 and 99 (where the cents entered determines the code). $1.08, $1.10, $1.11 and $1.16 will simulate an approved response.All Decline codes range from 1 to 999. A lot of these are reserved for future use and so do not appear here.Please obtain the latest ‘Bank and Bambora Response Codes’ document for more detail on the responses.
+All Decline codes range from 1 to 999. A lot of these are reserved for future use and so do not appear here.Please obtain the latest ‘Bank and Bambora Response Codes’ document for more detail on the responses.
 
 This list does not contain all the responses –only those that are most common.
 
