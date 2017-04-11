@@ -1,0 +1,120 @@
+:global {
+    .list {
+        display        : flex;
+        flex-direction : column;
+        margin-bottom  : 24px;
+        font-size      : 14px;
+
+        .list:last-child {
+            margin-bottom: initial;
+        }
+    }
+
+    .list-item {
+        padding         : 20px 0 20px 20px;
+        position        : relative;
+        display         : flex;
+        justify-content : space-between;
+        flex-wrap       : wrap;
+    }
+
+    .list.list-lines .list-item {
+        border-top   : 1px solid rgba(240, 240, 240, 1);
+        border-left  : 1px solid transparent;
+        border-right : 1px solid transparent;
+        transition   : 200ms all cubic-bezier(0.25, 0.8, 0.25, 1);
+
+        &:last-child {
+            border-bottom: 1px solid rgba(240, 240, 240, 1);
+        }
+
+        &.list-item-nested, &.list-item-expanded {
+            border-left: 1px solid rgb(120, 71, 181);
+        }
+
+        &.list-item-expanded {
+            border-right: 1px solid #f0f0f0;
+        }
+    }
+
+    .list .list-item .list-item-text {
+        overflow      : hidden;
+        padding-right : 15px;
+        display       : flex;
+        align-items   : center;
+
+        h1, h2 {
+            overflow      : hidden;
+            white-space   : nowrap;
+            text-overflow : ellipsis;
+        }
+
+        p {
+            word-break : break-word;
+            text-align : left;
+        }
+
+        > span {
+            text-overflow : ellipsis;
+            overflow      : hidden;
+        }
+    }
+
+    .list .list-item .list-item-text h1,
+    .list .list-item .list-item-text h2 {
+        line-height   : 20px;
+        margin-bottom : 0px;
+        font-family   : "Fakt Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    }
+
+    .list .list-item .list-item-text h1 {
+        font-size   : 16px;
+        font-weight : 500;
+    }
+
+    .list .list-item .list-item-text h2 {
+        font-size: 14px;
+    }
+
+    .list .list-item .list-item-text p {
+        font-size     : 14px;
+        line-height   : 20px;
+        margin-bottom : 0px;
+        color         : rgba(0,0,0,0.55);
+    }
+
+    .list .list-item .list-item-secondary {
+        display         : flex;
+        align-items     : center;
+        justify-content : flex-end;
+    }
+
+    .btn-icon  {
+        background : transparent;
+        border     : none;
+        color      : rgb(120, 71, 181);
+        display    : block;
+
+        .svg-icon {
+            height          : 100%;
+            width           : 100%;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+
+            svg {
+                width  : 16px;
+                height : 16px;
+            }
+        }
+    }
+
+    .list .list-item .list-item-addon {
+        display     : flex;
+        align-items : center;
+    }
+
+    .list .list-item .list-item-expanded {
+        padding-top: 20px;
+    }
+}

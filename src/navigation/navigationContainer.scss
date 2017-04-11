@@ -1,0 +1,23 @@
+.container {
+    flex      : 0 1 auto;
+    width     : 200px;
+    min-width : 200px;
+    padding   : 24px 20px 20px 0;
+}
+
+.menu {
+    composes       : global(nav-vertical);
+    width          : 200px;
+    min-width      : 200px;
+    /*max-height     : calc(100vh - 86px);*/
+    /*position       : fixed;*/
+    overflow-x     : auto;
+    padding-bottom : 20px;
+}
+
+.heading {
+    composes       : global(text-micro);
+    margin-top     : 35px;
+    padding-left   : 19px;
+    padding-bottom : 15px;
+}

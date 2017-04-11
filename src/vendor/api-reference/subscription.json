@@ -1,0 +1,674 @@
+{
+	"swagger" : "2.0",
+	"info" : {
+		"version" : "1.1.29.0"
+	},
+	"host" : "subscription-v1.api.epay.eu:443",
+	"schemes" : ["https"],
+	"paths" : {
+		"/subscriptions" : {
+			"get" : {
+				"summary" : "List subscriptions",
+				"description" : "Get a list of all of the subscriptions.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.listsubscriptions",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "exclusivestartkey",
+						"in" : "query",
+						"description" : "The next key to start from.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "pagesize",
+						"in" : "query",
+						"description" : "The maximum number of items.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "filters",
+						"in" : "query",
+						"description" : "A filter query string.",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.listsubscriptionsresponse"
+						}
+					}
+				}
+			}
+		},
+		"/subscriptions/{subscriptionid}" : {
+			"get" : {
+				"summary" : "Get subscription details",
+				"description" : "Get the details for a subscription by its ID.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.getsubscription",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "subscriptionid",
+						"in" : "path",
+						"description" : "ID of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.getsubscriptionresponse"
+						}
+					}
+				}
+			},
+			"delete" : {
+				"summary" : "Delete subscription",
+				"description" : "Delete a subscription by its ID.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.deletesubscription",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "subscriptionid",
+						"in" : "path",
+						"description" : "ID of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.deletesubscriptionresponse"
+						}
+					}
+				}
+			},
+			"patch" : {
+				"summary" : "Modify subscription",
+				"description" : "Modify some or all of the properties of a subscription.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.patchsubscription",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "subscriptionid",
+						"in" : "path",
+						"description" : "ID of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "request",
+						"in" : "body",
+						"description" : "The subscription properties to update.",
+						"required" : true,
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Request.patchsubscription"
+						}
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.patchsubscriptionresponse"
+						}
+					}
+				}
+			}
+		},
+		"/subscriptions/{subscriptionid}/authorize" : {
+			"post" : {
+				"summary" : "Authorize transaction on subscription",
+				"description" : "Authorize a new transaction on a subscription by the ID of the subscription.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.authorize",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "subscriptionid",
+						"in" : "path",
+						"description" : "ID of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "request",
+						"in" : "body",
+						"description" : "Authorize details.",
+						"required" : true,
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Request.authorizesubscription"
+						}
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.authorizeresponse"
+						}
+					}
+				}
+			}
+		},
+		"/subscriptions/{subscriptionid}/transactions" : {
+			"get" : {
+				"summary" : "List transactions on subscription",
+				"description" : "Get a list of all transactions on a subscription by the ID of the subscription.",
+				"operationId" : "EPay.Webservice.Subscription.V1.SubscriptionService.listtransactions",
+				"consumes" : ["application/json", "application/xml"],
+				"produces" : ["application/json", "application/xml"],
+				"parameters" : [{
+						"name" : "exclusivestartkey",
+						"in" : "query",
+						"description" : "The next key to start from.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "pagesize",
+						"in" : "query",
+						"description" : "The maximum number of items.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "status",
+						"in" : "query",
+						"description" : "Status of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}, {
+						"name" : "subscriptionid",
+						"in" : "path",
+						"description" : "ID of the subscription.",
+						"required" : true,
+						"type" : "string"
+					}
+				],
+				"responses" : {
+					"default" : {
+						"description" : "not available",
+						"schema" : {
+							"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.listtransactionsresponse"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions" : {
+		"EPay.Webservice.Models.V1.Common.currency" : {
+			"properties" : {
+				"code" : {
+					"description" : "The ISO 3166-1 alpha-3 representation of the currency",
+					"type" : "string",
+					"example" : "SEK",
+					"uniqueItems" : false
+				},
+				"number" : {
+					"description" : "The ISO 3166-1 numeric-3 representation of the currency",
+					"type" : "string",
+					"example" : "752",
+					"uniqueItems" : false
+				},
+				"minorunits" : {
+					"description" : "Number of minor units for the currency, that is, the number of significant decimal places",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : "2",
+					"uniqueItems" : false
+				},
+				"name" : {
+					"description" : "The name of the currency",
+					"type" : "string",
+					"example" : "Svensk krona",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Common.currency"
+		},
+		"EPay.Webservice.Models.V1.Common.paging" : {
+			"properties" : {
+				"lastevaluatedkey" : {
+					"description" : "The last evaluated key. For next page set exclusivestartkey to this value",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"itemsreturned" : {
+					"description" : "Number of items returned in the list",
+					"type" : "integer",
+					"format" : "int64",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Common.paging"
+		},
+		"EPay.Webservice.Models.V1.Common.Response.action" : {
+			"properties" : {
+				"source" : {
+					"description" : "Origin of the action code. If this begins with ePay the origin is ePay's system.",
+					"type" : "string",
+					"example" : "Nets",
+					"uniqueItems" : false
+				},
+				"code" : {
+					"description" : "The response code from the source",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"type" : {
+					"description" : "Type of the action code (e.g. generalerror)",
+					"type" : "string",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Common.Response.action"
+		},
+		"EPay.Webservice.Models.V1.Common.Response.message" : {
+			"properties" : {
+				"enduser" : {
+					"description" : "Message to show the end user",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"merchant" : {
+					"description" : "Message to show the merchant. This may not be shown to the end user",
+					"type" : "string",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Common.Response.message"
+		},
+		"EPay.Webservice.Models.V1.Common.Response.meta" : {
+			"properties" : {
+				"result" : {
+					"description" : "Result of the request. True means success, false means error.",
+					"type" : "boolean",
+					"uniqueItems" : false
+				},
+				"message" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.message"
+				},
+				"action" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.action"
+				},
+				"paging" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.paging"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Common.Response.meta"
+		},
+		"EPay.Webservice.Models.V1.Subscription.authorize" : {
+			"required" : ["currency", "amount", "orderid"],
+			"properties" : {
+				"currency" : {
+					"description" : "The currency of the parameter amount",
+					"type" : "string",
+					"example" : "DKK",
+					"uniqueItems" : false
+				},
+				"amount" : {
+					"description" : "The amount to authorize. Defined in minor units",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 9995,
+					"uniqueItems" : false
+				},
+				"orderid" : {
+					"description" : "The merchants order id",
+					"type" : "string",
+					"example" : "ShopOrder123",
+					"uniqueItems" : false
+				},
+				"reference" : {
+					"description" : "The merchants referrence value",
+					"type" : "string",
+					"example" : "123",
+					"uniqueItems" : false
+				},
+				"fee" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.fee"
+				},
+				"capturemulti" : {
+					"description" : "Enables to capture multiple times. Acquirers handles this differently and may not reserve the amount",
+					"type" : "boolean",
+					"uniqueItems" : false
+				},
+				"instantcaptureamount" : {
+					"description" : "Amount to capture once the authorizations is completed. Potential added fee will be captured if the value is equal to amount. Set capturemulti if the value is less and amount and the remaining amount is expected to be captured later",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 0,
+					"uniqueItems" : false
+				},
+				"clientipaddress" : {
+					"description" : "The IP address of the client/cardholder",
+					"type" : "string",
+					"example" : "127.0.0.1",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.authorize"
+		},
+		"EPay.Webservice.Models.V1.Subscription.fee" : {
+			"properties" : {
+				"amount" : {
+					"description" : "The fee amount to authorize. Defined in minor units",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 555,
+					"uniqueItems" : false
+				},
+				"id" : {
+					"description" : "The ID of the used payment type fee",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 6543875231,
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.fee"
+		},
+		"EPay.Webservice.Models.V1.Subscription.paymenttype" : {
+			"properties" : {
+				"id" : {
+					"description" : "The ID of the payment type",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 6,
+					"uniqueItems" : false
+				},
+				"groupid" : {
+					"description" : "The group ID of the payment type",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 3,
+					"uniqueItems" : false
+				},
+				"displayname" : {
+					"description" : "The display name of the payment type",
+					"type" : "string",
+					"example" : "MasterCard (Debit / Domestic)",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.paymenttype"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Request.authorizesubscription" : {
+			"required" : ["authorize"],
+			"properties" : {
+				"authorize" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.authorize"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Request.authorizesubscription"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Request.Patch.subscription" : {
+			"properties" : {
+				"status" : {
+					"description" : "Status of the subscription",
+					"type" : "string",
+					"example" : "Active",
+					"uniqueItems" : false,
+					"enum" : ["Active", "Deleted", "Inactive"]
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Request.Patch.subscription"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Request.patchsubscription" : {
+			"required" : ["subscription"],
+			"properties" : {
+				"subscription" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Request.Patch.subscription"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Request.patchsubscription"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.authorizeresponse" : {
+			"properties" : {
+				"fee" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.fee"
+				},
+				"transactionid" : {
+					"description" : "ID of the transaction.",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"authorizedamount" : {
+					"description" : "The amount that was authorized on the transaction.",
+					"type" : "integer",
+					"format" : "int32",
+					"uniqueItems" : false
+				},
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.authorizeresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.deletesubscriptionresponse" : {
+			"properties" : {
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.deletesubscriptionresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.fee" : {
+			"properties" : {
+				"amount" : {
+					"description" : "The fee amount to authorize. Defined in minor units",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 555,
+					"uniqueItems" : false
+				},
+				"id" : {
+					"description" : "The ID of the used payment type fee",
+					"type" : "string",
+					"example" : 6543875231,
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.fee"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.getsubscriptionresponse" : {
+			"properties" : {
+				"subscription" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.subscription"
+				},
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.getsubscriptionresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.listsubscriptionsresponse" : {
+			"properties" : {
+				"subscriptions" : {
+					"description" : "A list of subscriptions.",
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.subscription"
+					},
+					"uniqueItems" : false
+				},
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.listsubscriptionsresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.listtransactionsresponse" : {
+			"properties" : {
+				"subscriptiontransactions" : {
+					"description" : "A list of transactions on the subscription.",
+					"type" : "array",
+					"items" : {
+						"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.subscriptiontransaction"
+					},
+					"uniqueItems" : false
+				},
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.listtransactionsresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.patchsubscriptionresponse" : {
+			"properties" : {
+				"subscription" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.Response.subscription"
+				},
+				"meta" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.Response.meta"
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.patchsubscriptionresponse"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.subscription" : {
+			"required" : ["id"],
+			"properties" : {
+				"id" : {
+					"description" : "The ID of the subscription",
+					"type" : "string",
+					"example" : 7341745432,
+					"uniqueItems" : false
+				},
+				"subscriptionidvalue" : {
+					"type" : "integer",
+					"format" : "int64",
+					"uniqueItems" : false
+				},
+				"description" : {
+					"description" : "Description on the subscription",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"createddate" : {
+					"description" : "Creation date",
+					"type" : "string",
+					"example" : "2009-06-15T13:45:30.000Z",
+					"uniqueItems" : false
+				},
+				"deleteddate" : {
+					"description" : "Deletion date",
+					"type" : "string",
+					"uniqueItems" : false
+				},
+				"status" : {
+					"description" : "Status of the subscription",
+					"type" : "string",
+					"example" : "Active",
+					"uniqueItems" : false,
+					"enum" : ["Active", "Deleted", "Inactive"]
+				},
+				"acquirername" : {
+					"description" : "Name of the Acquirer used to sign up",
+					"type" : "string",
+					"example" : "Test",
+					"uniqueItems" : false
+				},
+				"paymenttype" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Subscription.paymenttype"
+				},
+				"numberoftransactions" : {
+					"description" : "Number of transactions performed using the subscription since sign up",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 5,
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.subscription"
+		},
+		"EPay.Webservice.Models.V1.Subscription.Response.subscriptiontransaction" : {
+			"properties" : {
+				"id" : {
+					"description" : "The transaction ID",
+					"type" : "string",
+					"example" : "3375276528",
+					"uniqueItems" : false
+				},
+				"acquirername" : {
+					"description" : "Name of the Acquirer used to authoize",
+					"type" : "string",
+					"example" : "Test",
+					"uniqueItems" : false
+				},
+				"amount" : {
+					"description" : "The amount authorized. Defined in minor units",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 9995,
+					"uniqueItems" : false
+				},
+				"createddate" : {
+					"description" : "Creation date",
+					"type" : "string",
+					"example" : "2009-06-15T13:45:30.000Z",
+					"uniqueItems" : false
+				},
+				"feeamount" : {
+					"description" : "The fee/surcharge amount applied. Defined in minor units",
+					"type" : "integer",
+					"format" : "int32",
+					"example" : 139,
+					"uniqueItems" : false
+				},
+				"currency" : {
+					"$ref" : "#/definitions/EPay.Webservice.Models.V1.Common.currency"
+				},
+				"orderid" : {
+					"description" : "The merchants order ID used when authorized",
+					"type" : "string",
+					"example" : "ShopOrder123",
+					"uniqueItems" : false
+				},
+				"reference" : {
+					"description" : "The merchants reference value used when authorized",
+					"type" : "string",
+					"example" : "123456789012",
+					"uniqueItems" : false
+				},
+				"status" : {
+					"description" : "The status of the transaction",
+					"type" : "string",
+					"example" : "Approved",
+					"uniqueItems" : false,
+					"enum" : ["Pending", "Waiting", "Approved", "Declined", "Deleted", "Locked", "VerificationApproved", "VerificationDeclined"]
+				},
+				"subscriptionid" : {
+					"description" : "The subscription ID",
+					"type" : "string",
+					"example" : "3779276528",
+					"uniqueItems" : false
+				}
+			},
+			"type" : "object",
+			"format" : "EPay.Webservice.Models.V1.Subscription.Response.subscriptiontransaction"
+		}
+	}
+}
