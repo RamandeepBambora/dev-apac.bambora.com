@@ -1,0 +1,346 @@
+{
+    "products": [
+        {
+            "name": "Checkout",
+            "id": "checkout",
+            "guides": {
+                "menu": [
+                    {
+                        "section": {
+                            "title": "Getting Started",
+                            "id": "getting-started"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "introduction"
+                            },
+                            {
+                                "title": "Create Account",
+                                "id": "create-account"
+                            },
+                            {
+                                "title": "Create Payment",
+                                "id": "create-payment"
+                            },
+                            {
+                                "title": "Handle Respones",
+                                "id": "handle-responses"
+                            },
+                            {
+                                "title": "Test Your Setup",
+                                "id": "test-your-setup"
+                            }
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "Handling Payments",
+                            "id": "handling-payments"
+                        },
+                        "guides": [
+                            {
+                                "title": "Bambora Backoffice",
+                                "id": "bambora-backoffice"
+                            },
+                            {
+                                "title": "Handling with API",
+                                "id": "handling-with-api"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "apis": {
+                "menu": [
+                    {
+                        "title": "Checkout",
+                        "id": "checkout"
+                    },
+                    {
+                        "title": "Data",
+                        "id": "data"
+                    },
+                    {
+                        "title": "Merchant",
+                        "id": "merchant"
+                    },
+                    {
+                        "title": "Subscription",
+                        "id": "subscription"
+                    },
+                    {
+                        "title": "Transaction",
+                        "id": "transaction"
+                    }
+                ]
+            }
+        },
+		{
+            "name": "Shopping Carts",
+            "id": "shopping-carts",
+            "guides": {
+                "menu": [
+                    {
+                        "section": {
+                            "title": "Getting Started",
+                            "id": "getting-started"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "introduction"
+                            },
+							{
+                                "title": "Create Account",
+                                "id": "create-account"
+                            }						
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "Shopping Carts",
+                            "id": "shopping-carts"
+                        },
+                        "guides": [
+                            {
+                                "title": "Magento",
+                                "id": "magento"
+                            },
+                            {
+                                "title": "Magento 2",
+                                "id": "magento2"
+                            },
+                            {
+                                "title": "PrestaShop",
+                                "id": "prestashop"
+                            },
+                            {
+                                "title": "WooCommerce",
+                                "id": "woocommerce"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "apis": {
+                "menu": []
+            }
+        },		
+        {
+            "name": "Native Payment",
+            "id": "native-payment",
+            "guides": {
+                "menu": [
+                    {
+                        "section": {
+                            "title": "General",
+                            "id": "introduction"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "getting-started"
+                            },
+                                                        {
+                                "title": "Test Cards",
+                                "id": "test-cards"
+                            }
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "Android",
+                            "id": "android"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "introduction"
+                            },
+                            {
+                                "title": "Installation",
+                                "id": "installation"
+                            },
+                            {
+                                "title": "Setup",
+                                "id": "setup"
+                            },
+                            {
+                                "title": "Sample App",
+                                "id": "sample-app"
+                            },
+                            {
+                                "title": "Registering Cards",
+                                "id": "registering-cards"
+                            },
+                            {
+                                "title": "Managing Cards",
+                                "id": "managing-cards"
+                            },
+                            {
+                                "title": "Making Payments",
+                                "id": "making-payments"
+                            },
+                            {
+                                "title": "Handling Errors",
+                                "id": "handling-errors"
+                            },
+                            {
+                                "title": "Test Mode",
+                                "id": "test-mode"
+                            },
+                            {
+                                "title": "Capturing payments",
+                                "id": "capturing-payments"
+                            },
+                            {
+                                "title": "Customization",
+                                "id": "customization"
+                            }
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "iOS",
+                            "id": "ios"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "introduction"
+                            },
+                            {
+                                "title": "Installation",
+                                "id": "installation"
+                            },
+                            {
+                                "title": "Setup",
+                                "id": "setup"
+                            },
+                            {
+                                "title": "Sample App",
+                                "id": "sample-app"
+                            },
+                            {
+                                "title": "Registering Cards",
+                                "id": "registering-cards"
+                            },
+                            {
+                                "title": "Managing Cards",
+                                "id": "managing-cards"
+                            },
+                            {
+                                "title": "Making Payments",
+                                "id": "making-payments"
+                            },
+                            {
+                                "title": "Handling Errors",
+                                "id": "handling-errors"
+                            },
+                            {
+                                "title": "Test Mode",
+                                "id": "test-mode"
+                            },
+                            {
+                                "title": "Capturing payments",
+                                "id": "capturing-payments"
+                            },
+                            {
+                                "title": "Customization",
+                                "id": "customization"
+                            }
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "API Guide",
+                            "id": "api-guide"
+                        },
+                        "guides": [
+                            {
+                                "title": "Introduction",
+                                "id": "introduction"
+                            },
+                            {
+                                "title": "Authentication",
+                                "id": "authentication"
+                            },
+                            {
+                                "title": "Make Payment",
+                                "id": "make-payment"
+                            },
+                            {
+                                "title": "Cancel Payment",
+                                "id": "cancel-payment"
+                            },
+                            {
+                                "title": "Capture Payment",
+                                "id": "capture-payment"
+                            },
+                            {
+                                "title": "Get Payment",
+                                "id": "get-payment"
+                            },
+                            {
+                                "title": "Refund Payment",
+                                "id": "refund-payment"
+                            },
+                            {
+                                "title": "Errors",
+                                "id": "errors"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "apis": {
+                "menu": [
+                    {
+                        "title": "Payment",
+                        "id": "payment"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Support",
+            "id": "support",
+            "guides": {
+                "menu": [
+                    {
+                        "section": {
+                            "title": "Getting Help",
+                            "id": "getting-help"
+                        },
+                        "guides": [
+                            {
+                                "title": "Contact Us",
+                                "id": "contact-us"
+                            }								
+                        ]
+                    },
+                    {
+                        "section": {
+                            "title": "FAQ",
+                            "id": "faq"
+                        },
+                        "guides": [
+                            {
+                                "title": "Checkout",
+                                "id": "checkout"
+                            },
+                            {
+                                "title": "Native Payment",
+                                "id": "native-payment"
+                            }							
+                        ]
+                    }
+                ]
+            },
+            "apis": {
+                "menu": []
+            }
+        }
+    ]
+}

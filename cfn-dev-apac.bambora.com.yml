@@ -33,7 +33,7 @@ Resources:
             BucketName: !FindInMap [ EnvMap, !Ref Environment, BucketName ]
             LoggingConfiguration:
                 DestinationBucketName: !Join [ "-", [ bambora, weblogs, !Ref Environment, !Ref "AWS::Region" ]]
-                LogFilePrefix: dev-apac-portal
+                LogFilePrefix: dev-apac-portal/
             WebsiteConfiguration:
                 ErrorDocument: error.html
                 IndexDocument: index.html
@@ -84,7 +84,7 @@ Resources:
                 Logging:
                     Bucket: bambora-weblogs-prod-eu-west-1.s3.amazonaws.com
                     IncludeCookies: false
-                    Prefix: cloudfront-dev-apac-portal
+                    Prefix: cloudfront-dev-apac-portal/
                 Origins:
                     - DomainName: dev-apac.bambora.com.s3.amazonaws.com
                       Id: dev-apac

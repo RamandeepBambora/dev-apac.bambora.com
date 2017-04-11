@@ -1,0 +1,1 @@
+export const contactUs = require("./contactUs.md")    as string;
