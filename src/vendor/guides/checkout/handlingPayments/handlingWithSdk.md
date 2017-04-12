@@ -1,5 +1,5 @@
 # Handling with SDK
-Integrating payments into your application is a lot easier if we speak your language. That's why we've built SDK's to wrap our API service for a simple flexible solution.
+Integrating payments into your application is a lot easier when we speak your language. That's why we've built SDK's to wrap our API service for a simple flexible payment solution.
 
 ----
 
