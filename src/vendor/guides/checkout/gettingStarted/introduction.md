@@ -6,6 +6,8 @@ This guide will provide you with all information you need in order to get starte
 
 * Use an online shopping cart system
 * Build your own custom integration
+* Intergrated integration
+* Standalone integration
 
 ### Use an online shopping cart system
 The Bambora Checkout is supported in popular online shopping cart systems like Magento and PrestaShop among others.
