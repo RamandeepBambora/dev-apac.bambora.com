@@ -1,6 +1,6 @@
 # Installation
 
-To install the iOS Native Payment SDK, we recommend using either CocoaPods or Carthage.
+Currently, Xcode 8.2.1 is being used. 
 
 ## CocoaPods
 
